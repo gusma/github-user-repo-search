@@ -1,14 +1,22 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
-import { Layout } from '../components';
-import RepositoriesResult from '../components/repositories/RepositoriesResult';
-import RepositoriesSearch from '../components/repositories/RepositoriesSearch';
+import { Layout, RepositoriesResult, RepositoriesSearch } from '../components';
 
 const Repositories = () => (
-  <Layout>
-    <RepositoriesSearch />
-    <RepositoriesResult />
-  </Layout>
+  <>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>
+        Github Search | Code Challenge for Zebrands \ Gustavo Malamud
+      </title>
+      <meta name="robots" content="noindex, nofollow" />
+    </Helmet>
+    <Layout>
+      <RepositoriesSearch />
+      <RepositoriesResult />
+    </Layout>
+  </>
 );
 
 export default Repositories;

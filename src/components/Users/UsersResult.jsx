@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import githubContext from '../../context/github/githubContext';
 import Loader from '../Loader';
@@ -8,21 +9,38 @@ const UsersResult = () => {
 
   const { loading, users } = ghContext;
 
+  function limitNameLength(string) {
+    if (string.length > 20) {
+      return string.substring(0, 20) + '...';
+    }
+    return string;
+  }
+
   if (loading) {
     return <Loader />;
   } else {
     return (
-      <div>
+      <div className="row">
         {users.map((user) => (
-          <div key={user.id}>
+          <div
+            key={user.id}
+            className="col-md overflow-hidden p-2 align-items-left w-auto flex-wrap"
+          >
             <a
               href={`https://github.com/${user.login}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={user.avatar_url} alt={user.id} />
+              <LazyLoadImage
+                alt={user.id}
+                height={'150'}
+                src={user.avatar_url} // use normal <img> attributes as props
+                width={'150'}
+              />
               <br />
-              {user.login}
+              <p className="d-inline-block text-truncate text-center">
+                {limitNameLength(user.login)}
+              </p>
             </a>
           </div>
         ))}

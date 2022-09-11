@@ -1,14 +1,17 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Alert, Navbar } from '../index';
+import { Alert, Footer, Navbar } from '../index';
 
 const Layout = ({ children }) => {
   return (
     <>
-      <Navbar />
-      <Alert />
-      {children}
+      <div className="container">
+        <Navbar />
+        <Alert />
+        {children}
+        <Footer />
+      </div>
     </>
   );
 };

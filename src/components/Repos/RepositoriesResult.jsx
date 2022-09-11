@@ -12,9 +12,12 @@ const RepositoriesResult = () => {
     return <Loader />;
   } else {
     return (
-      <div>
+      <div className="row">
         {repos.map((repo) => (
-          <div key={repo.id}>
+          <div
+            key={repo.id}
+            className="col-md overflow-hidden p-2 align-items-left w-auto flex-wrap"
+          >
             <a
               href={`https://www.github.com/${repo.full_name}`}
               target="_blank"

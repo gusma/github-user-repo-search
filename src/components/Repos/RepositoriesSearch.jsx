@@ -24,7 +24,7 @@ const RepositoriesSearch = () => {
   };
 
   return (
-    <div>
+    <div className="text-center">
       <form onSubmit={onSubmit}>
         <div className="form">
           <input

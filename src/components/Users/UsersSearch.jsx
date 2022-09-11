@@ -24,7 +24,7 @@ const UsersSearch = () => {
   };
 
   return (
-    <div>
+    <div className="text-center py-5">
       <form onSubmit={onSubmit}>
         <div className="form">
           <input
@@ -33,13 +33,16 @@ const UsersSearch = () => {
             placeholder="Search Users..."
             value={text}
             onChange={onChange}
+            className="px-5 py-2 mx-5"
           />
-          <input type="submit" value="Search" />
+          <input type="submit" value="Search" className="px-5 py-2 mr-5" />
+          {ghContext.users.length > 0 && (
+            <button className="px-5 py-2 " onClick={ghContext.userClear}>
+              Clear
+            </button>
+          )}
         </div>
       </form>
-      {ghContext.users.length > 0 && (
-        <button onClick={ghContext.userClear}>Clear</button>
-      )}
     </div>
   );
 };

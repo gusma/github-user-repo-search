@@ -3,20 +3,24 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav>
+    <div className="row flex-nowrap justify-content-between align-self-centered align-items-center p-5 bg-secondary text-white">
       <h2>
         <p>Logo</p>
       </h2>
 
-      <ul>
-        <li>
-          <Link to="/">Users</Link>
-        </li>
-        <li>
-          <Link to="/repositories">Repositories</Link>
-        </li>
-      </ul>
-    </nav>
+      <div className="d-flex justify-content-between flex-row">
+        <div className="mr-5">
+          <Link className="text-white" to="/">
+            Users
+          </Link>
+        </div>
+        <div>
+          <Link className="text-white" to="/repositories">
+            Repositories
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 };
 
