@@ -40,54 +40,70 @@ const GithubState = (props) => {
 
   // Search User
   const searchUsers = async (text) => {
-    setLoading();
-    const res = await axios.get(
-      `https://api.github.com/search/users?q=${text}&client_id=${githubClientId}&client_secret=${githubClientSecret}`,
-    );
+    try {
+      setLoading();
+      const res = await axios.get(
+        `https://api.github.com/search/users?q=${text}&client_id=${githubClientId}&client_secret=${githubClientSecret}`,
+      );
 
-    dispatch({
-      type: SEARCH_USERS,
-      payload: res.data.items,
-    });
+      dispatch({
+        type: SEARCH_USERS,
+        payload: res.data.items,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   // Search Repositories
   const searchRepos = async (text) => {
-    setLoading();
-    const res = await axios.get(
-      `https://api.github.com/search/repositories?q=${text}&client_id=${githubClientId}&client_secret=${githubClientSecret}`,
-    );
+    try {
+      setLoading();
+      const res = await axios.get(
+        `https://api.github.com/search/repositories?q=${text}&client_id=${githubClientId}&client_secret=${githubClientSecret}`,
+      );
 
-    dispatch({
-      type: SEARCH_REPOS,
-      payload: res.data.items,
-    });
+      dispatch({
+        type: SEARCH_REPOS,
+        payload: res.data.items,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   // Get User
   const getUser = async (userName) => {
-    setLoading();
-    const res = await axios.get(
-      `https://api.github.com/users/${userName}?client_id=${githubClientId}&client_secret=${githubClientSecret}`,
-    );
-    setSearched();
+    try {
+      setLoading();
+      const res = await axios.get(
+        `https://api.github.com/users/${userName}?client_id=${githubClientId}&client_secret=${githubClientSecret}`,
+      );
+      setSearched();
 
-    dispatch({ type: GET_USER, payload: res.data });
+      dispatch({ type: GET_USER, payload: res.data });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   // Get Repos
   const getRepos = async (userName) => {
-    setLoading();
+    try {
+      setLoading();
 
-    const res = await axios.get(
-      `https://api.github.com/users/${userName}/repos?per_page=5&sort=created:asc&client_id=${githubClientId}&client_secret=${githubClientSecret}`,
-    );
-    setSearched();
+      const res = await axios.get(
+        `https://api.github.com/users/${userName}/repos?per_page=5&sort=created:asc&client_id=${githubClientId}&client_secret=${githubClientSecret}`,
+      );
+      setSearched();
 
-    dispatch({
-      type: GET_REPOS,
-      payload: res.data,
-    });
+      dispatch({
+        type: GET_REPOS,
+        payload: res.data,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   // Clear Users

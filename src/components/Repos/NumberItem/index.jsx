@@ -20,7 +20,7 @@ const NumberItem = ({ info, type }) => {
 NumberItem.propTypes = {
   info: PropTypes.any,
   type: PropTypes.string,
-  listView: PropTypes.boolean,
+  listView: PropTypes.any,
 };
 
 export default NumberItem;

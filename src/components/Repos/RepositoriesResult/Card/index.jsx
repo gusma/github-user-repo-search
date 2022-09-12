@@ -5,14 +5,14 @@ import { NumberItem } from '../../../';
 import { limitStringLength } from '../../../../helpers/limitStringLength';
 import { CardContainer, NameContainer, SocialsContainer } from './Card.styled';
 
-const Card = ({ repo, listView }) => {
+const Card = ({ repo, listView, key }) => {
   const repoName =
     repo.name && listView ? repo.name : limitStringLength(repo.name, 20);
   const description = repo.description && listView ? repo.description : null;
 
   return (
     <CardContainer
-      key={repo.id}
+      key={key}
       className={
         listView
           ? 'col-lg-12 col-sm-12 col-md-12 px-2 py-4 border-bottom'
@@ -44,7 +44,8 @@ const Card = ({ repo, listView }) => {
 
 Card.propTypes = {
   repo: PropTypes.object,
-  listView: PropTypes.bool,
+  listView: PropTypes.any,
+  key: PropTypes.any,
 };
 
 export default Card;

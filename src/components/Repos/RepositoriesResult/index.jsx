@@ -39,7 +39,7 @@ const RepositoriesResult = () => {
           ) : null}
           {repos.map((repo) => (
             <>
-              <Card repo={repo} listView={listView} />
+              <Card key={repo.id} repo={repo} listView={listView} />
             </>
           ))}
         </ResultsWrapper>
