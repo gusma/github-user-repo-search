@@ -3,11 +3,11 @@ import React from 'react';
 
 import { Alert, Footer, Navbar } from '../index';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, title }) => {
   return (
     <>
       <div className="container">
-        <Navbar />
+        <Navbar title={title} />
         <Alert />
         {children}
         <Footer />
@@ -18,6 +18,8 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.any,
+  props: PropTypes.any,
+  title: PropTypes.string,
 };
 
 export default Layout;

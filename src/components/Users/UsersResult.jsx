@@ -21,10 +21,11 @@ const UsersResult = () => {
   } else {
     return (
       <div className="row">
+        {console.log(users)}
         {users.map((user) => (
           <div
             key={user.id}
-            className="col-md overflow-hidden p-2 align-items-left w-auto flex-wrap"
+            className="col-lg-2 col-sm-6 col-md-3 overflow-hidden p-2 align-items-left w-auto flex-wrap"
           >
             <a
               href={`https://github.com/${user.login}`}

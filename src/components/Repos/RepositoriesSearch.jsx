@@ -24,7 +24,7 @@ const RepositoriesSearch = () => {
   };
 
   return (
-    <div className="text-center">
+    <div className="text-center py-5 d-flex justify-content-around">
       <form onSubmit={onSubmit}>
         <div className="form">
           <input
@@ -33,13 +33,20 @@ const RepositoriesSearch = () => {
             placeholder="Search Repositories..."
             value={text}
             onChange={onChange}
+            className="px-5 py-2 mx-5"
           />
-          <input type="submit" value="Search" />
+          <input
+            type="submit"
+            value="Search"
+            className="px-5 py-2 btn btn-primary"
+          />
+          {ghContext.repos.length > 0 && (
+            <button className="ml-5 px-5 py-2 " onClick={ghContext.repoClear}>
+              Clear
+            </button>
+          )}
         </div>
       </form>
-      {ghContext.repos.length > 0 && (
-        <button onClick={ghContext.repoClear}>Clear</button>
-      )}
     </div>
   );
 };

@@ -12,8 +12,12 @@ const App = () => {
     <GithubState>
       <AlertState>
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/repositories" element={<Repositories />} />
+          <Route exact path="/" element={<Home title="Users" />} />
+          <Route
+            exact
+            path="/repositories"
+            element={<Repositories title="Repositories" />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </AlertState>
