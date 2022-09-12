@@ -20,4 +20,6 @@ export const SocialsContainer = styled.div.attrs(() => ({
   className: 'd-flex w-100 mt-3',
 }))``;
 
-export const CardContainer = styled.div``;
+export const CardContainer = styled.div.attrs(() => ({
+  className: '',
+}))``;

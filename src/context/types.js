@@ -6,4 +6,5 @@ export const CLEAR_USERS = 'CLEAR_USERS';
 export const CLEAR_REPOS = 'CLEAR_REPOS';
 export const SET_LOADING = 'SET_LOADING';
 export const SET_ALERT = 'SET_ALERT';
+export const SET_SEARCHED = 'SET_SEARCHED';
 export const REMOVE_ALERT = 'REMOVE_ALERT';

@@ -1,15 +1,24 @@
 import React, { useContext } from 'react';
+import Alert from 'react-bootstrap/Alert';
 
 import alertContext from '../../context/alert/alertContext';
 
-const Alert = () => {
+const AlertComponent = () => {
   const context = useContext(alertContext);
+
   return (
-    context.alert !== null && (
-      // <div className={`alert alert-${context.alert.type}`}>
-      <div>{context.alert.msg}</div>
+    context.alert !== '' && (
+      <>
+        <Alert
+          key={context.alert.type}
+          variant={context.alert.msg !== '' ? context.alert.type : 'light'}
+          className={context.alert.msg !== '' ? 'mx-2 my-4' : ''}
+        >
+          {context.alert.msg !== '' && context.alert.msg}
+        </Alert>
+      </>
     )
   );
 };
 
-export default Alert;
+export default AlertComponent;

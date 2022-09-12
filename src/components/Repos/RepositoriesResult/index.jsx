@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 
+import alertContext from '../../../context/alert/alertContext';
 import githubContext from '../../../context/github/githubContext';
-import { Card, Loader } from '../../index';
+import { Card, Loader, NoResults } from '../../index';
 import {
   MainContainer,
   ResultsWrapper,
@@ -10,8 +11,10 @@ import {
 
 const RepositoriesResult = () => {
   const ghContext = useContext(githubContext);
+  const alContext = useContext(alertContext);
 
-  const { loading, repos } = ghContext;
+  const { loading, searched, repos } = ghContext;
+  const { alert } = alContext;
 
   const [listView, setListView] = useState(false);
 
@@ -31,6 +34,9 @@ const RepositoriesResult = () => {
       <MainContainer>
         {showViewOptions}
         <ResultsWrapper>
+          {searched && repos.length === 0 && alert.msg !== '' ? (
+            <NoResults />
+          ) : null}
           {repos.map((repo) => (
             <>
               <Card repo={repo} listView={listView} />

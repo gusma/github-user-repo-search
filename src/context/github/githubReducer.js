@@ -6,6 +6,7 @@ import {
   SEARCH_REPOS,
   SEARCH_USERS,
   SET_LOADING,
+  SET_SEARCHED,
 } from '../types';
 
 export default (state, action) => {
@@ -26,6 +27,11 @@ export default (state, action) => {
       return {
         ...state,
         loading: true,
+      };
+    case SET_SEARCHED:
+      return {
+        ...state,
+        searched: true,
       };
     case CLEAR_USERS:
       return {

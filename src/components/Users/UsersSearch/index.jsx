@@ -9,9 +9,9 @@ import {
   SearchContainer,
   SubmitInput,
   TextInput,
-} from './RepositoriesSearch.styled';
+} from './UserSearch.styled';
 
-const RepositoriesSearch = () => {
+const UsersSearch = () => {
   const [text, setText] = useState('');
 
   const ghContext = useContext(githubContext);
@@ -24,11 +24,12 @@ const RepositoriesSearch = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (text === '') {
-      alContext.setAlert('Please fill in with your query', 'info');
+      alContext.setAlert('Please enter a query for your search.', 'info');
       return;
     }
-    ghContext.searchRepos(text);
     ghContext.setSearched();
+    ghContext.searchUsers(text);
+    alContext.setAlert('');
 
     setText('');
   };
@@ -45,8 +46,9 @@ const RepositoriesSearch = () => {
             onChange={onChange}
           />
           <SubmitInput type="submit" value="Search" />
-          {ghContext.repos.length > 0 && (
-            <ClearButton onClick={ghContext.repoClear}>Clear</ClearButton>
+
+          {ghContext.users.length > 0 && (
+            <ClearButton onClick={ghContext.userClear}>Clear</ClearButton>
           )}
         </FormWrapper>
       </FormContainer>
@@ -54,4 +56,4 @@ const RepositoriesSearch = () => {
   );
 };
 
-export default RepositoriesSearch;
+export default UsersSearch;

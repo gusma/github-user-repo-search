@@ -1,9 +1,12 @@
+/* The decision to implement this hotfix for the background gradient 
+was taken because Bootstrap 4 doesn't play nicely with Background Gradients.
+For further reference check out the broken gradient example on
+https://getbootstrap.com/docs/4.0/utilities/colors/
+*/
+
 .logo {
   fill: white;
   background: inherit;
-}
-.logo:hover {
-  fill: black;
 }
 
 .navbar__main-container {

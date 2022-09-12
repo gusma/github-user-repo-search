@@ -10,6 +10,7 @@ import {
   SEARCH_REPOS,
   SEARCH_USERS,
   SET_LOADING,
+  SET_SEARCHED,
 } from '../types';
 import githubContext from './githubContext';
 import githubReducer from './githubReducer';
@@ -32,6 +33,7 @@ const GithubState = (props) => {
     repos: [],
     repo: {},
     loading: false,
+    searched: false,
   };
 
   const [state, dispatch] = useReducer(githubReducer, initialState);
@@ -68,15 +70,19 @@ const GithubState = (props) => {
     const res = await axios.get(
       `https://api.github.com/users/${userName}?client_id=${githubClientId}&client_secret=${githubClientSecret}`,
     );
+    setSearched();
+
     dispatch({ type: GET_USER, payload: res.data });
   };
 
   // Get Repos
   const getRepos = async (userName) => {
     setLoading();
+
     const res = await axios.get(
       `https://api.github.com/users/${userName}/repos?per_page=5&sort=created:asc&client_id=${githubClientId}&client_secret=${githubClientSecret}`,
     );
+    setSearched();
 
     dispatch({
       type: GET_REPOS,
@@ -93,6 +99,9 @@ const GithubState = (props) => {
   // Set Loading
   const setLoading = () => dispatch({ type: SET_LOADING });
 
+  // Set Searching
+  const setSearched = () => dispatch({ type: SET_SEARCHED });
+
   return (
     <githubContext.Provider
       value={{
@@ -100,8 +109,10 @@ const GithubState = (props) => {
         user: state.user,
         repos: state.repos,
         loading: state.loading,
+        searched: state.searched,
         searchUsers,
         searchRepos,
+        setSearched,
         userClear,
         repoClear,
         getUser,

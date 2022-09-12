@@ -1,24 +1,24 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Alert, Footer, Navbar } from '../index';
+import { AlertComponent, Footer, Navbar } from '../index';
+import { LayoutContainer } from './Layout.styled';
 
 const Layout = ({ children, title }) => {
   return (
     <>
-      <div className="container">
+      <LayoutContainer>
         <Navbar title={title} />
-        <Alert />
+        <AlertComponent />
         {children}
         <Footer />
-      </div>
+      </LayoutContainer>
     </>
   );
 };
 
 Layout.propTypes = {
   children: PropTypes.any,
-  props: PropTypes.any,
   title: PropTypes.string,
 };
 
