@@ -1,20 +1,19 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Fork, Star } from '../../index';
+import { Eye, Fork, Star } from '../../index';
+import { Icon, InfoItem, StyledContainer } from './NumberItem.styled';
 
-const NumberItem = ({ listView, info, type }) => {
-  const numberItemContainer = listView
-    ? 'col-1 bg-dark text-white text-center mr-2 py-1'
-    : 'bg-dark text-white mr-2 px-2 py-1';
-  const icon = type === 'fork' ? <Fork /> : type === 'stars' ? <Star /> : '';
+const NumberItem = ({ info, type }) => {
+  const icon =
+    type === 'Forks' ? <Fork /> : type === 'Stars' ? <Star /> : <Eye />;
   const infoItem = info ? info : '--';
 
   return (
-    <div className={numberItemContainer}>
-      <span className="pr-2">{infoItem}</span>
-      {icon}
-    </div>
+    <StyledContainer title={`${infoItem} ${type}`}>
+      <InfoItem>{infoItem}</InfoItem>
+      <Icon>{icon}</Icon>
+    </StyledContainer>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+import './assets/styles/main.scss';
 import AlertState from './context/alert/AlertState';
 import GithubState from './context/github/GithubState';
 import Home from './pages/Home';

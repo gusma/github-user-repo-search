@@ -24,7 +24,7 @@ const UsersSearch = () => {
   };
 
   return (
-    <div className="text-center py-5 d-flex">
+    <div className="text-center py-5 d-flex justify-content-around">
       <form onSubmit={onSubmit}>
         <div className="form">
           <input
@@ -41,7 +41,7 @@ const UsersSearch = () => {
             className="px-5 py-2 btn btn-primary"
           />
           {ghContext.users.length > 0 && (
-            <button className="ml-5 px-5 py-2 " onClick={ghContext.userClear}>
+            <button className="ml-5 px-5 py-2" onClick={ghContext.userClear}>
               Clear
             </button>
           )}

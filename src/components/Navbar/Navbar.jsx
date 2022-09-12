@@ -1,20 +1,27 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
+import githubContext from '../../context/github/githubContext';
 import './Navbar.css';
 
 const Navbar = (props) => {
+  const ghContext = useContext(githubContext);
+
   return (
     <>
       <div className="row navbar-dark bg-dark px-5 py-2 justify-content-end">
         <div className="mr-5">
-          <Link className="text-white" to="/">
+          <Link className="text-white" to="/" onClick={ghContext.userClear}>
             Users
           </Link>
         </div>
         <div>
-          <Link className="text-white" to="/repositories">
+          <Link
+            className="text-white"
+            to="/repositories"
+            onClick={ghContext.repoClear}
+          >
             Repositories
           </Link>
         </div>
