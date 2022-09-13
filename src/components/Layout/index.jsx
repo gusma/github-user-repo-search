@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { AlertComponent, Footer, Navbar } from '../index';
-import { LayoutContainer } from './Layout.styled';
+import { LayoutContainer, PushContainer } from './Layout.styled';
 
 const Layout = ({ children, title }) => {
   return (
@@ -11,6 +11,7 @@ const Layout = ({ children, title }) => {
         <Navbar title={title} />
         <AlertComponent />
         {children}
+        <PushContainer></PushContainer>
         <Footer />
       </LayoutContainer>
     </>

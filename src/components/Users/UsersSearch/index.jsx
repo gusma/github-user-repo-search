@@ -41,7 +41,7 @@ const UsersSearch = () => {
           <TextInput
             type="text"
             name="text"
-            placeholder="Search Repositories..."
+            placeholder="Search Users..."
             value={text}
             onChange={onChange}
           />

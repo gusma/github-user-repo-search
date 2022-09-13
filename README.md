@@ -19,6 +19,10 @@ The DoD of the challenge is described [here](). The idea is to build an applicat
 >   Implemen Next.js for server side rendering
 >   Create an awesome user experience
 
+## Viewability 
+
+The code challenge is live online [here](https://zebrands-coding-challenge.vercel.app/).
+
 ## Technologies used
 
 The technologies used for this project were:
